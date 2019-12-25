@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-
+import React, {Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class Dispalysrc extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class Dispalysrc extends Component {
     }
   }
 componentDidMount(){
-	fetch('https://jsonplaceholder.typicode.com/users')
+	fetch('http://dummy.restapiexample.com/api/v1/employees')
 	.then(res => res.json())
 	.then(json =>{
 		this.setState({
@@ -22,9 +22,12 @@ componentDidMount(){
   
   render() {
    var{ isLoaded, items } =this.state;
+   var i=0;
+  
 
    if(!isLoaded){
-   	return<div>Loading...</div>
+
+   	return<div>Loading.......</div>
    }
    else{
     return (
@@ -32,13 +35,23 @@ componentDidMount(){
         <ul>
         {items.map(items =>(
         	<li key={items.id}>
-        	<br/>Name: {items.name} 
-        	<br/> Email: {items.email}
-        	<br/>Website: {items.profile}<br/>
+         {i}
+          :- 
+        	<Link to ={"/create"+i} params={{testvalue:i}}>Employee Name: {items.employee_name}</Link>
+        	<br/> Employee Age: {items.employee_age}
+
+          
+          {i++}
+          
         	</li>
-        	))}
+
+        	)
+          )
+        }
+
         </ul>
-      </div>
+        </div>
+        
     );
   }
 	}
