@@ -21,6 +21,16 @@ componentDidMount(){
 }
   
   render() {
+
+    const mystyle = {
+      color: 'black',
+      width: '50%',
+      border: '1px solid',
+  padding: '8px'
+    };
+
+
+
    var{ isLoaded, items } =this.state;
    var i=0;
   
@@ -32,24 +42,27 @@ componentDidMount(){
    else{
     return (
       <div>
-        <ul>
-        {items.map(items =>(
-        	<li key={items.id}>
-         {i}
-          :- 
-        	<Link to ={"/create"+i} params={{testvalue:i}}>Employee Name: {items.employee_name}</Link>
-        	<br/> Employee Age: {items.employee_age}
-
+      {items.map(items =>(
+        <table key={items.id}>
+        <tr>
+        
+        	
           
+        	<td style={mystyle}><Link to ={"/create"+i} params={{testvalue:i}}>Name: {items.employee_name}</Link></td>
+        	<td style={mystyle}>Age: {items.employee_age}</td>
+          
+          
+
+        	
           {i++}
-          
-        	</li>
 
-        	)
+        	
+        </tr>
+
+        </table>
+        )
           )
         }
-
-        </ul>
         </div>
         
     );
