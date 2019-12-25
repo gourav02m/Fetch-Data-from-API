@@ -28,7 +28,12 @@ componentDidMount(){
   
   render() {
 
-
+    const mystyle = {
+      color: 'blue',
+      width: '80%',
+      border: '1px solid',
+  padding: '8px'
+    };
  
   	
 
@@ -59,13 +64,15 @@ componentDidMount(){
 			<div>
 			
 			<div>
-			Employee Details:- <br />
-
-			{t.split(",")[0]} <br />
-		    {t.split(",")[1]} <br />
-		    {t.split(",")[2]} <br />
-		    {t.split(",")[3]} <br />	
-			
+			<h3>Employee Details:- </h3><br />
+      <table>
+      <td style={mystyle}>
+			<tr>{t.split(",")[0]}</tr> <br />
+		   <tr> {t.split(",")[1]}</tr> <br />
+		   <tr> {t.split(",")[2]}</tr> <br />
+		    <tr>{t.split(",")[3]}</tr> <br />
+        </td>	
+			</table>
         </div>
 			</div>
 			);
